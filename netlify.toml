@@ -1,0 +1,4 @@
+[[redirects]]
+form  = "/*"
+to = "amazon.html"
+status = 200
