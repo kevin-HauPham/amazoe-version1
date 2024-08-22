@@ -1,5 +1,6 @@
 import { cart, addToCart } from "../data/cart.js";
 import {products} from "../data/products.js"
+import { formatCurency } from "../util/currency.js";
 //create variable HTML to store creating html elements
 // tofixed method will turn number in to string, when we wat to show how many decimal : example number.tofixed (2) will show 2 deciamls and convert it to string
 let productsHTML = '';
@@ -22,7 +23,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            ${(product.priceCents / 100).toFixed(2)} 
+            ${formatCurency(product.priceCents)} 
           </div>
 
           <div class="product-quantity-container">
@@ -74,7 +75,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         const newProductName = button.dataset.productName;
         const newProductId = button.dataset.productId;
         addToCart(newProductName,newProductId);
-        console.log(cart);
         calculateQuantity();  
     });
 });
